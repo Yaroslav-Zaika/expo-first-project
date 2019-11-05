@@ -11,8 +11,11 @@ import {
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
+import { useGetMeQuery } from '../generated/graphql';
 
-export default function HomeScreen() {
+export default HomeScreen = () => {
+	const { data , loading, error } = useGetMeQuery();
+	console.log('data', data);
 	return (
 		<View style={styles.container}>
 			<ScrollView
@@ -36,6 +39,7 @@ export default function HomeScreen() {
 
 					<View
 						style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
+						<MonoText>screens/HomeScreen.js</MonoText>
 						<MonoText>screens/HomeScreen.js</MonoText>
 					</View>
 
